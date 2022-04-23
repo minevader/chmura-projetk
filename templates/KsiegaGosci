@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<h3> Zostaw po sobie ślad </h3>
+  <hr>
+    <form>
+        <input type=hidden name=fields value="Name,Email,Comments">
+        Nick: <input type=text name=Name><br>
+        Komentarz: <br><textarea name=text rows=5 cols=60>
+</textarea><br>
+        <input type=submit value="Submit">
+    </form>
+    <hr noshade>
+<h3> Księga gości </h3>
+    {% for result in data %}
+        <p>{{result.name }} napisał: {{result.text }}&nbsp;&nbsp;&nbsp;&nbsp; dnia: {{ result.data_wpisu}}</p>
+    {% else %}
+        <p>Brak wpisów </p>
+    {% endfor %}
+    <hr noshade>
+
+{% endblock %}
+
+
+
